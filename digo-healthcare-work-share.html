@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Healthcare Work — DiMassimo Goldstein</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:       #F2C12E;
+      --gold-dk:    #C9970D;
+      --black:      #080808;
+      --near-black: #111111;
+      --dark:       #1A1A1A;
+      --mid:        #2A2A2A;
+      --grey:       #888888;
+      --light:      #F5F0E8;
+      --white:      #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .rule {
+      width: 48px;
+      height: 3px;
+      background: var(--gold);
+      margin-bottom: 28px;
+    }
+
+    /* ── NAV ─────────────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 8vw;
+      background: rgba(8,8,8,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(242,193,46,0.1);
+    }
+
+    .nav-logo {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--gold); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-links .nav-cta {
+      background: var(--gold);
+      color: var(--black);
+      padding: 10px 24px;
+      font-weight: 600;
+    }
+
+    .nav-links .nav-cta:hover { background: var(--gold-dk); color: var(--black); }
+
+    /* ── HERO ─────────────────────────────────────────────────────────── */
+    .hero {
+      min-height: 85vh;
+      background: var(--black);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 140px 8vw 88px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 800px; }
+
+    .hero-content .eyebrow { margin-bottom: 24px; }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(48px, 6.5vw, 100px);
+      font-weight: 900;
+      line-height: 0.93;
+      letter-spacing: -0.02em;
+      margin-bottom: 36px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      font-size: clamp(17px, 1.7vw, 21px);
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      max-width: 580px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+    }
+
+    .hero-sub:last-of-type {
+      margin-bottom: 56px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 56px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(40px, 4.5vw, 60px);
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .hero-stat-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* ── BELIEF STRIP ─────────────────────────────────────────────────── */
+    .belief-strip {
+      background: var(--gold);
+      padding: 36px 8vw;
+    }
+
+    .belief-inner {
+      display: flex;
+      align-items: flex-start;
+      gap: 28px;
+    }
+
+    .belief-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(8,8,8,0.45);
+      white-space: nowrap;
+      padding-top: 5px;
+    }
+
+    .belief-rule {
+      width: 1px;
+      height: 28px;
+      background: rgba(8,8,8,0.2);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    .belief-content {
+      flex: 1;
+    }
+
+    .belief-text {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(17px, 1.9vw, 22px);
+      font-weight: 700;
+      color: var(--black);
+      line-height: 1.35;
+    }
+
+    .belief-body {
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(8,8,8,0.55);
+      line-height: 1.65;
+      margin-top: 10px;
+    }
+
+    .belief-kicker {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      font-weight: 700;
+      font-style: italic;
+      color: var(--black);
+      margin-top: 10px;
+    }
+
+    /* ── SECTION ─────────────────────────────────────────────────────── */
+    section { padding: 96px 8vw; }
+
+    .section-header {
+      max-width: 680px;
+      margin-bottom: 72px;
+    }
+
+    .section-header .eyebrow { margin-bottom: 20px; }
+
+    .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(34px, 4.2vw, 60px);
+      font-weight: 900;
+      line-height: 1.06;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    .section-header h2 em { font-style: italic; color: var(--gold); }
+
+    .section-header p {
+      font-size: 17px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.7;
+    }
+
+    /* ── CASE STUDIES ────────────────────────────────────────────────── */
+    .case-studies { background: var(--near-black); }
+
+    .case-study {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 80px 0;
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 88px;
+      align-items: start;
+    }
+
+    .case-study:last-of-type {
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .cs-left {
+      align-self: start;
+    }
+
+    .cs-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 80px;
+      font-weight: 900;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(242,193,46,0.18);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .cs-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(242,193,46,0.3);
+      padding: 6px 14px;
+      margin-bottom: 20px;
+    }
+
+    .cs-client {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 3.2vw, 44px);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin-bottom: 8px;
+    }
+
+    .cs-partnership {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.35);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .cs-tagline {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 19px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.5;
+      border-left: 2px solid var(--gold);
+      padding-left: 18px;
+      margin-top: 24px;
+    }
+
+    .cs-cover {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      display: block;
+      margin-top: 28px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .cs-section-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.28);
+      margin-bottom: 10px;
+    }
+
+    .cs-challenge { margin-bottom: 32px; }
+
+    .cs-body {
+      font-size: 17px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.68);
+      line-height: 1.72;
+    }
+
+    .cs-body + .cs-body { margin-top: 14px; }
+
+    .cs-campaign {
+      background: var(--dark);
+      border-left: 3px solid var(--gold);
+      padding: 24px 28px;
+      margin: 32px 0;
+    }
+
+    .cs-campaign-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .cs-campaign-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.2;
+      font-style: italic;
+    }
+
+    .cs-campaign-sub {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+
+    .cs-results {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 40px;
+      padding-top: 36px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .cs-result-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 38px;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .cs-result-label {
+      font-size: 12px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.4;
+    }
+
+    /* ── CASE STUDY CREATIVE ─────────────────────────────────────────── */
+    .cs-creative {
+      grid-column: 1 / -1;
+      padding-top: 44px;
+      margin-top: 8px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .cs-creative-eyebrow {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .cs-creative img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .cs-creative-cap {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.22);
+      margin-top: 12px;
+    }
+
+    .cs-creative-collage {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 6px;
+    }
+
+    .cs-creative-collage img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    /* ── IDEA FRAMEWORK ──────────────────────────────────────────────── */
+    .idea-section {
+      background: var(--black);
+    }
+
+    .approach-intro {
+      max-width: 680px;
+      margin-bottom: 48px;
+    }
+
+    .approach-body {
+      font-size: 17px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.72;
+      margin-bottom: 8px;
+    }
+
+    .approach-immersion-list {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0 24px;
+    }
+
+    .approach-immersion-list li {
+      font-size: 15px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.5);
+      padding: 6px 0 6px 18px;
+      position: relative;
+    }
+
+    .approach-immersion-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 13px;
+      width: 6px;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    .approach-kicker {
+      font-size: 17px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.72;
+      margin-bottom: 4px;
+    }
+
+    .approach-emphasis {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      font-style: italic;
+      color: var(--gold);
+      margin-top: 16px;
+    }
+
+    .idea-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin-top: 0;
+    }
+
+    .idea-panel {
+      background: var(--dark);
+      padding: 52px 48px;
+    }
+
+    .idea-panel.gold-panel {
+      background: var(--gold);
+    }
+
+    .idea-panel-eyebrow {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 20px;
+    }
+
+    .idea-panel.gold-panel .idea-panel-eyebrow {
+      color: rgba(8,8,8,0.45);
+    }
+
+    .idea-panel h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 3vw, 42px);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin-bottom: 20px;
+      color: var(--white);
+    }
+
+    .idea-panel.gold-panel h3 { color: var(--black); }
+
+    .idea-panel h3 em { font-style: italic; color: var(--gold); }
+
+    .idea-panel.gold-panel h3 em { color: var(--black); text-decoration: underline; }
+
+    .idea-panel p {
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+    }
+
+    .idea-panel.gold-panel p { color: rgba(8,8,8,0.65); }
+
+    .idea-disciplines {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 24px;
+    }
+
+    .discipline-tag {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 6px 12px;
+    }
+
+    /* ── CAPABILITIES ─────────────────────────────────────────────────── */
+    .capabilities { background: var(--near-black); }
+
+    .cap-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .cap-item {
+      background: var(--dark);
+      padding: 40px 36px;
+      transition: background 0.2s;
+    }
+
+    .cap-item:hover { background: var(--mid); }
+
+    .cap-icon {
+      font-size: 24px;
+      margin-bottom: 18px;
+      opacity: 0.9;
+    }
+
+    .cap-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 21px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .cap-desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.65;
+    }
+
+    .cap-sub-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 14px;
+    }
+
+    .cap-sub-list li {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.35);
+      padding: 4px 0 4px 14px;
+      position: relative;
+    }
+
+    .cap-sub-list li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+    }
+
+    /* ── CLIENTS ─────────────────────────────────────────────────────── */
+    .clients-section {
+      background: var(--dark);
+      padding: 72px 8vw;
+    }
+
+    .clients-label {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .clients-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .client-logo-cell {
+      background: rgba(255,255,255,0.03);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 24px;
+      min-height: 100px;
+      transition: background 0.25s;
+    }
+
+    .client-logo-cell:hover {
+      background: rgba(255,255,255,0.06);
+    }
+
+    .client-logo-img {
+      max-height: 48px;
+      max-width: 160px;
+      width: auto;
+      height: auto;
+      opacity: 0.55;
+      transition: opacity 0.25s;
+      filter: brightness(1.1);
+    }
+
+    .client-logo-cell:hover .client-logo-img {
+      opacity: 0.85;
+    }
+
+    /* ── CTA ─────────────────────────────────────────────────────────── */
+    .cta-section {
+      background: var(--gold);
+      padding: 100px 8vw;
+      text-align: center;
+    }
+
+    .cta-section .eyebrow { color: rgba(8,8,8,0.45); margin-bottom: 20px; }
+
+    .cta-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 5vw, 72px);
+      font-weight: 900;
+      line-height: 1.05;
+      color: var(--black);
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    .cta-section h2 em { font-style: italic; }
+
+    .cta-section p {
+      font-size: 18px;
+      font-weight: 300;
+      color: rgba(8,8,8,0.6);
+      max-width: 520px;
+      margin: 0 auto 16px;
+      line-height: 1.65;
+    }
+
+    .cta-closer {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(18px, 2vw, 24px);
+      font-weight: 700;
+      font-style: italic;
+      color: var(--black);
+      max-width: 520px;
+      margin: 8px auto 40px;
+      line-height: 1.4;
+    }
+
+    .cta-btns {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-dark {
+      display: inline-block;
+      background: var(--black);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 18px 44px;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-dark:hover { background: var(--near-black); transform: translateY(-2px); }
+
+    .btn-outline {
+      display: inline-block;
+      background: transparent;
+      color: var(--black);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 18px 44px;
+      border: 2px solid rgba(8,8,8,0.3);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .btn-outline:hover { border-color: var(--black); transform: translateY(-2px); }
+
+    /* ── FOOTER ──────────────────────────────────────────────────────── */
+    footer {
+      background: var(--black);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 36px 8vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-logo {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .footer-logo span { color: var(--gold); }
+
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.2); }
+
+    /* ── RESPONSIVE ──────────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .case-study { grid-template-columns: 1fr; gap: 40px; }
+
+      .cs-results { grid-template-columns: repeat(2, 1fr); }
+      .cap-grid { grid-template-columns: 1fr 1fr; }
+      .idea-grid { grid-template-columns: 1fr; }
+      .clients-grid { grid-template-columns: repeat(2, 1fr); }
+      .belief-inner { flex-direction: column; gap: 16px; }
+      .belief-rule { width: 48px; height: 1px; }
+    }
+
+    @media (max-width: 640px) {
+      nav { padding: 20px 6vw; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .hero { padding: 120px 6vw 60px; }
+      .hero-stats { gap: 28px; }
+      section { padding: 64px 6vw; }
+      .cap-grid { grid-template-columns: 1fr; }
+      .clients-grid { grid-template-columns: repeat(2, 1fr); }
+      .cs-creative-collage { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 10px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ─────────────────────────────────────────────────────────── -->
+  <nav>
+    <a href="#" class="nav-logo"><img src="cs-images/digo-logo-white.png" alt="DiGo" style="height: 24px; width: auto; display: block;" /></a>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="the-30-year-rally.html" class="nav-cta">The 30-Year Rally →</a>
+    </div>
+  </nav>
+
+  <!-- ── HERO ─────────────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="eyebrow">DiMassimo Goldstein · Healthcare Practice</p>
+      <h1>The IDEA that<br><em>changes</em><br>everything.</h1>
+      <p class="hero-sub">We help healthcare innovators, from rural to urban, regional to academic, get the credit they deserve so they can help more people.</p>
+      <p class="hero-sub">We do this through strategic and creative partnerships that last a decade or more.</p>
+      <div class="hero-stats">
+        <div class="hero-stat-item">
+          <div class="hero-stat-num">30</div>
+          <div class="hero-stat-label">Years in Healthcare</div>
+        </div>
+        <div class="hero-stat-item">
+          <div class="hero-stat-num">15+</div>
+          <div class="hero-stat-label">Yr. Avg. Partnership</div>
+        </div>
+        <div class="hero-stat-item">
+          <div class="hero-stat-num">10+</div>
+          <div class="hero-stat-label">Health System Clients</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BELIEF ─────────────────────────────────────────────────────── -->
+  <div class="belief-strip">
+    <div class="belief-inner">
+      <span class="belief-label">Our Belief</span>
+      <div class="belief-rule"></div>
+      <div class="belief-content">
+        <p class="belief-text">"Everything informs the IDEA — and the IDEA informs everything."</p>
+        <p class="belief-body">Culture. Consumer. Company. Competition. When the IDEA is right, it aligns leadership, unifies service lines, guides media, strengthens recruitment, and drives measurable growth.</p>
+        <p class="belief-kicker">That is how you build a legendary brand.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CASE STUDIES ──────────────────────────────────────────────────── -->
+  <section class="case-studies" id="work">
+    <div class="section-header">
+      <p class="eyebrow">Selected Work</p>
+      <div class="rule"></div>
+      <p>They are already doing remarkable things. We help them uncover the IDEA that builds legendary brands.</p>
+    </div>
+
+    <!-- ── CASE STUDY 1: Dartmouth Health ── -->
+    <div class="case-study">
+      <div class="cs-left">
+        <div class="cs-num">01</div>
+        <span class="cs-tag">Academic Health System</span>
+        <h3 class="cs-client">Dartmouth Health</h3>
+        <p class="cs-partnership">Long-Term Strategic Partnership</p>
+        <p class="cs-tagline">"The gap was not capability. It was belief."</p>
+        <img src="cs-images/dartmouth-cover.jpg" alt="Dartmouth Health — A Healthy Disregard for the Impossible" class="cs-cover" />
+      </div>
+      <div class="cs-right">
+        <div class="cs-challenge">
+          <p class="cs-section-label">The Sticking Point</p>
+          <p class="cs-body">The gap was not capability. It was belief.</p>
+          <p class="cs-body">Dartmouth Health was delivering world-class care across New Hampshire and Vermont. Advanced diagnostics. Complex procedures. Breakthrough research.</p>
+          <p class="cs-body">But when serious illness struck, many patients still defaulted to Boston.</p>
+          <p class="cs-body">The institution was already competing at that level. People simply did not know it.</p>
+        </div>
+
+        <div class="cs-campaign">
+          <p class="cs-campaign-label">The IDEA</p>
+          <p class="cs-campaign-name">A Healthy Disregard for the Impossible</p>
+        </div>
+
+        <div class="cs-challenge">
+          <p class="cs-section-label">The Unstucking Strategy</p>
+          <p class="cs-body">You cannot make people believe in something they do not know.</p>
+          <p class="cs-body">We did not invent a new story. We made the true story impossible to ignore.</p>
+          <p class="cs-body">Instead of generic healthcare advertising, we led with proof. Real outcomes. Real clinicians. Real innovation happening close to home.</p>
+          <p class="cs-body"><em>A Healthy Disregard for the Impossible</em> became the organizing belief. It united multiple institutions under one proud voice and gave the region permission to believe in its own academic health system.</p>
+        </div>
+
+        <div class="cs-results">
+          <div class="cs-result-item">
+            <div class="cs-result-num">5</div>
+            <div class="cs-result-label">Institutions unified under one master brand</div>
+          </div>
+          <div class="cs-result-item">
+            <div class="cs-result-num">#1</div>
+            <div class="cs-result-label">Hospital in New Hampshire — U.S. News &amp; World Report</div>
+          </div>
+          <div class="cs-result-item">
+            <div class="cs-result-num">✓</div>
+            <div class="cs-result-label">Long-term platform embedded across brand and service lines</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-creative">
+        <p class="cs-creative-eyebrow">Campaign Work</p>
+        <img src="cs-images/dartmouth-impossible.jpg" alt="A Healthy Disregard for the Impossible — Dartmouth Health campaign" />
+        <p class="cs-creative-cap">A Healthy Disregard for the Impossible · Dartmouth Health · DiGo</p>
+      </div>
+    </div>
+
+    <!-- ── CASE STUDY 2: Memorial Sloan Kettering ── -->
+    <div class="case-study">
+      <div class="cs-left">
+        <div class="cs-num">02</div>
+        <span class="cs-tag">Cancer Center</span>
+        <h3 class="cs-client">Memorial Sloan Kettering Cancer Center</h3>
+        <p class="cs-partnership">10+ Year Strategic &amp; Creative Partnership</p>
+        <p class="cs-tagline">"The problem was not reputation. It was hesitation."</p>
+        <img src="cs-images/msk-cover.jpg" alt="Memorial Sloan Kettering Cancer Center — A Decade of Strategic Partnership" class="cs-cover" />
+      </div>
+      <div class="cs-right">
+        <div class="cs-challenge">
+          <p class="cs-section-label">The Sticking Point</p>
+          <p class="cs-body">MSK was known as the best cancer hospital in the world.</p>
+          <p class="cs-body">But too many patients arrived late.</p>
+          <p class="cs-body">They felt intimidated. They assumed it was only for the worst cases. They hesitated.</p>
+          <p class="cs-body">The problem was not reputation. It was hesitation.</p>
+        </div>
+
+        <div class="cs-campaign">
+          <p class="cs-campaign-label">The IDEA</p>
+          <p class="cs-campaign-name">Talk Back to Cancer</p>
+        </div>
+
+        <div class="cs-challenge">
+          <p class="cs-section-label">The Unstucking Strategy</p>
+          <p class="cs-body">We needed to make courage possible.</p>
+          <p class="cs-body">Coming to MSK takes courage. So we invited people to prove to themselves that they had it.</p>
+          <p class="cs-body"><em>Talk Back to Cancer</em> reframed treatment as an act of strength. Patients were not passive recipients of care. They were choosing to fight. Choosing the best first.</p>
+          <p class="cs-body">Across media, digital, and physician outreach, we modeled the behavior and made the next step clear.</p>
+        </div>
+
+        <div class="cs-results">
+          <div class="cs-result-item">
+            <div class="cs-result-num">10+</div>
+            <div class="cs-result-label">Years of growth on one emotionally resonant platform</div>
+          </div>
+          <div class="cs-result-item">
+            <div class="cs-result-num">Top</div>
+            <div class="cs-result-label">Ranked cancer center in the nation — U.S. News &amp; World Report</div>
+          </div>
+          <div class="cs-result-item">
+            <div class="cs-result-num">↑</div>
+            <div class="cs-result-label">Earlier patient arrivals and strengthened referral behavior</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-creative">
+        <p class="cs-creative-eyebrow">Campaign Work</p>
+        <img src="cs-images/msk-talk-back.jpg" alt="Talk Back to Cancer — Memorial Sloan Kettering campaign ads" />
+        <p class="cs-creative-cap">Talk Back to Cancer · Memorial Sloan Kettering · DiGo</p>
+      </div>
+    </div>
+
+    <!-- ── CASE STUDY 3: National Jewish Health ── -->
+    <div class="case-study">
+      <div class="cs-left">
+        <div class="cs-num">03</div>
+        <span class="cs-tag">Specialty Hospital</span>
+        <h3 class="cs-client">National Jewish Health</h3>
+        <p class="cs-partnership">15-Year Strategic &amp; Creative Partnership</p>
+        <p class="cs-tagline">"That truth was real. It simply was not yet the organizing belief of the brand."</p>
+        <img src="cs-images/njh-cover.jpg" alt="National Jewish Health — 15 Years of Partnership" class="cs-cover" />
+      </div>
+      <div class="cs-right">
+        <div class="cs-challenge">
+          <p class="cs-section-label">The Sticking Point</p>
+          <p class="cs-body">National Jewish Health had 125 years of excellence in respiratory care.</p>
+          <p class="cs-body">Inside the institution lived a culture of relentless pursuit. Doctors who refused to give up. Researchers chasing answers others had abandoned.</p>
+          <p class="cs-body">That truth was real. It simply was not yet the organizing belief of the brand.</p>
+        </div>
+
+        <div class="cs-campaign">
+          <p class="cs-campaign-label">The IDEA</p>
+          <p class="cs-campaign-name">We Never Say Never</p>
+        </div>
+
+        <div class="cs-challenge">
+          <p class="cs-section-label">The Unstucking Strategy</p>
+          <p class="cs-body">We built the brand from the inside out.</p>
+          <p class="cs-body"><em>We Never Say Never</em> was not a tagline. It was a cultural truth.</p>
+          <p class="cs-body">We put patients at the center and positioned clinicians as their team. We led with perseverance and backed it with proof.</p>
+          <p class="cs-body">Over fifteen years, the IDEA stretched from specialty leadership to national expansion and ultimately to a broader destination system vision.</p>
+          <p class="cs-body">This was not a campaign. It was a 15-year brand transformation.</p>
+        </div>
+
+        <div class="cs-results">
+          <div class="cs-result-item">
+            <div class="cs-result-num">15</div>
+            <div class="cs-result-label">Years of unbroken institutional partnership</div>
+          </div>
+          <div class="cs-result-item">
+            <div class="cs-result-num">20+</div>
+            <div class="cs-result-label">Years added to CF patient life expectancy</div>
+          </div>
+          <div class="cs-result-item">
+            <div class="cs-result-num">#1</div>
+            <div class="cs-result-label">Ranked respiratory hospital in the nation</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-creative">
+        <p class="cs-creative-eyebrow">Campaign Work</p>
+        <img src="cs-images/njh-we-never-say-never.jpg" alt="We Never Say Never — National Jewish Health campaign ads showing patient stories" />
+        <p class="cs-creative-cap">We Never Say Never · National Jewish Health · DiGo</p>
+      </div>
+    </div>
+
+    <!-- ── CASE STUDY 4: Partnership to End Addiction ── -->
+    <div class="case-study">
+      <div class="cs-left">
+        <div class="cs-num">04</div>
+        <span class="cs-tag">National Nonprofit</span>
+        <h3 class="cs-client">Partnership to End Addiction</h3>
+        <p class="cs-partnership">Brand Launch Partnership</p>
+        <p class="cs-tagline">"The organization needed more than awareness. It needed trust."</p>
+        <img src="cs-images/ptea-pdf-p42-X148.jpg" alt="Partnership to End Addiction — Start with Connection" class="cs-cover" />
+      </div>
+      <div class="cs-right">
+        <div class="cs-challenge">
+          <p class="cs-section-label">The Sticking Point</p>
+          <p class="cs-body">Families facing addiction were isolating.</p>
+          <p class="cs-body">Shame kept parents silent. Silence delayed support.</p>
+          <p class="cs-body">The organization needed more than awareness. It needed trust.</p>
+        </div>
+
+        <div class="cs-campaign">
+          <p class="cs-campaign-label">The IDEA</p>
+          <p class="cs-campaign-name">Start with Connection</p>
+        </div>
+
+        <div class="cs-challenge">
+          <p class="cs-section-label">The Unstucking Strategy</p>
+          <p class="cs-body">Connection comes before correction.</p>
+          <p class="cs-body">We built a brand that started with empathy, not instruction. No stigma. No lecturing. Just recognition.</p>
+          <p class="cs-body"><em>Start with Connection</em> reframed the organization as an ally for families navigating the hardest moments of their lives.</p>
+        </div>
+
+        <div class="cs-results">
+          <div class="cs-result-item">
+            <div class="cs-result-num">National</div>
+            <div class="cs-result-label">Brand platform embraced across advocacy and public health</div>
+          </div>
+          <div class="cs-result-item">
+            <div class="cs-result-num">5B+</div>
+            <div class="cs-result-label">Impressions across print, digital, broadcast &amp; OOH</div>
+          </div>
+          <div class="cs-result-item">
+            <div class="cs-result-num">Trust</div>
+            <div class="cs-result-label">Positioned as the resource for families seeking support</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-creative">
+        <p class="cs-creative-eyebrow">Campaign Work</p>
+        <div class="cs-creative-collage">
+          <img src="cs-images/ptea-pdf-p75-X469.jpg" alt="The Road to Recovery Doesn't Have to Be Traveled Alone — Partnership to End Addiction campaign" />
+          <img src="cs-images/ptea-pdf-p73-X435.jpg" alt="Start with Connection — animated staircase scene showing parent reaching for child" />
+          <img src="cs-images/ptea-pdf-p75-X470.jpg" alt="Build a Bridge Over the Chasm of Addiction — Partnership to End Addiction campaign" />
+          <img src="cs-images/ptea-pdf-p74-X445.jpg" alt="Social Distance Can Also Be a Sign of Another Epidemic — magazine ad placement" />
+        </div>
+        <p class="cs-creative-cap">Start with Connection · Partnership to End Addiction · DiGo</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ── IDEA FRAMEWORK ─────────────────────────────────────────────── -->
+  <section class="idea-section" id="approach">
+    <div class="section-header" style="margin-bottom: 40px;">
+      <p class="eyebrow">Our Approach</p>
+      <div class="rule"></div>
+      <h2>Everything informs<br>the <em>IDEA.</em></h2>
+    </div>
+
+    <div class="approach-intro">
+      <p class="approach-body">Before we create anything, we go to school on your institution.</p>
+      <p class="approach-body">We immerse ourselves in:</p>
+
+      <ul class="approach-immersion-list">
+        <li>Organizational culture</li>
+        <li>Clinical excellence</li>
+        <li>Community expectations</li>
+        <li>Competitive pressure</li>
+        <li>Consumer behavior</li>
+      </ul>
+
+      <p class="approach-kicker">We are not looking for a campaign idea.</p>
+      <p class="approach-kicker">We are looking for the IDEA that can organize your system.</p>
+
+      <p class="approach-body" style="margin-top: 24px;">Once discovered, that IDEA guides identity, messaging, service line architecture, media investment, digital experience, internal alignment, recruitment, and growth strategy.</p>
+
+      <p class="approach-emphasis">Not just communications. Direction.</p>
+    </div>
+
+    <div class="idea-grid">
+      <div class="idea-panel gold-panel">
+        <p class="idea-panel-eyebrow">Everything Informs</p>
+        <h3>Culture.<br>Consumer.<br>Company.<br><em>Competition.</em></h3>
+        <p>We look at the full landscape before a single idea takes shape. What does the market need? What do patients want? What can this organization authentically own?</p>
+      </div>
+      <div class="idea-panel">
+        <p class="idea-panel-eyebrow">And the IDEA Informs Everything</p>
+        <h3>One idea.<br><em>Every</em> execution.</h3>
+        <p>Once discovered, the idea becomes the organizing principle for everything — ensuring every touchpoint builds the brand, not just fills media space.</p>
+        <div class="idea-disciplines">
+          <span class="discipline-tag">Brand Identity</span>
+          <span class="discipline-tag">Advertising</span>
+          <span class="discipline-tag">Digital & Social</span>
+          <span class="discipline-tag">Media Strategy</span>
+          <span class="discipline-tag">Content</span>
+          <span class="discipline-tag">CRM</span>
+          <span class="discipline-tag">PR / Experiential</span>
+          <span class="discipline-tag">Web / UX</span>
+          <span class="discipline-tag">AI Integration</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CAPABILITIES ───────────────────────────────────────────────── -->
+  <section class="capabilities" id="capabilities">
+    <div class="section-header">
+      <p class="eyebrow">What We Do</p>
+      <div class="rule"></div>
+      <h2>Built for the<br><em>complexity</em> of healthcare.</h2>
+      <p>Healthcare marketing is complex. The stakes are high. The buying cycles are long. The audiences are fragmented.</p>
+      <p style="margin-top: 12px;">We operate at the intersection of brand clarity and measurable institutional growth.</p>
+    </div>
+
+    <div class="cap-grid">
+      <div class="cap-item">
+        <div class="cap-icon">⬡</div>
+        <h4 class="cap-title">Brand Strategy &amp; Positioning</h4>
+        <p class="cap-desc">We help leadership define what the organization stands for and what it will not stand for.</p>
+        <ul class="cap-sub-list">
+          <li>Executive alignment workshops</li>
+          <li>Qualitative and quantitative research</li>
+          <li>Market and competitive audits</li>
+          <li>Brand architecture and messaging frameworks</li>
+          <li>Internal brand rollout and governance</li>
+        </ul>
+      </div>
+      <div class="cap-item">
+        <div class="cap-icon">◈</div>
+        <h4 class="cap-title">Full Quant &amp; Qual Research</h4>
+        <p class="cap-desc">Insight that informs real decisions.</p>
+        <ul class="cap-sub-list">
+          <li>Stakeholder interviews</li>
+          <li>Patient journey mapping</li>
+          <li>Physician and referrer research</li>
+          <li>Consumer segmentation</li>
+          <li>Brand tracking and perception studies</li>
+        </ul>
+      </div>
+      <div class="cap-item">
+        <div class="cap-icon">◎</div>
+        <h4 class="cap-title">Integrated Creative Campaigns</h4>
+        <p class="cap-desc">Platforms built to move behavior from awareness to action and sustained preference.</p>
+        <ul class="cap-sub-list">
+          <li>Television and streaming</li>
+          <li>Digital and social</li>
+          <li>Out of home</li>
+          <li>Content ecosystems</li>
+        </ul>
+      </div>
+      <div class="cap-item">
+        <div class="cap-icon">◇</div>
+        <h4 class="cap-title">Media Strategy &amp; Performance</h4>
+        <p class="cap-desc">Connecting brand investment to patient acquisition and long-term value.</p>
+        <ul class="cap-sub-list">
+          <li>Full-funnel planning</li>
+          <li>Attribution modeling</li>
+          <li>Optimization across channels</li>
+          <li>Budget alignment to growth priorities</li>
+        </ul>
+      </div>
+      <div class="cap-item">
+        <div class="cap-icon">⬟</div>
+        <h4 class="cap-title">Digital Experience &amp; Website Strategy</h4>
+        <p class="cap-desc">Designing digital ecosystems that support patients from first search to long-term relationship.</p>
+        <ul class="cap-sub-list">
+          <li>Complex health system websites</li>
+          <li>Service line integration</li>
+          <li>Conversion strategy</li>
+          <li>SEO and generative engine optimization</li>
+          <li>Content architecture</li>
+        </ul>
+      </div>
+      <div class="cap-item">
+        <div class="cap-icon">◉</div>
+        <h4 class="cap-title">CRM &amp; Lifecycle Marketing</h4>
+        <p class="cap-desc">Building systems that support sustained connection.</p>
+        <ul class="cap-sub-list">
+          <li>Marketing automation</li>
+          <li>Lead nurture programs</li>
+          <li>Referral engagement</li>
+          <li>Patient lifecycle communication</li>
+        </ul>
+      </div>
+      <div class="cap-item">
+        <div class="cap-icon">⟡</div>
+        <h4 class="cap-title">PR &amp; Experiential</h4>
+        <p class="cap-desc">Building trust beyond paid channels.</p>
+        <ul class="cap-sub-list">
+          <li>Thought leadership</li>
+          <li>Community engagement</li>
+          <li>Earned media strategy</li>
+          <li>Executive visibility</li>
+        </ul>
+      </div>
+      <div class="cap-item">
+        <div class="cap-icon">⊞</div>
+        <h4 class="cap-title">Marketing Technology &amp; AI Integration</h4>
+        <p class="cap-desc">Tools that amplify insight rather than create noise.</p>
+        <ul class="cap-sub-list">
+          <li>Modern martech stack planning</li>
+          <li>Data integration</li>
+          <li>AI-assisted personalization</li>
+          <li>Measurement infrastructure</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CLIENTS ─────────────────────────────────────────────────────── -->
+  <div class="clients-section">
+    <div class="clients-label">
+      <p class="eyebrow">Trusted by the Brands Changing Healthcare</p>
+    </div>
+    <div class="clients-grid">
+      <div class="client-logo-cell">
+        <img src="cs-images/logos/dartmouth-health.png" alt="Dartmouth Health" class="client-logo-img" />
+      </div>
+      <div class="client-logo-cell">
+        <img src="cs-images/logos/memorial-sloan-kettering.png" alt="Memorial Sloan Kettering" class="client-logo-img" />
+      </div>
+      <div class="client-logo-cell">
+        <img src="cs-images/logos/national-jewish-health.png" alt="National Jewish Health" class="client-logo-img" />
+      </div>
+      <div class="client-logo-cell">
+        <img src="cs-images/logos/newyork-presbyterian.png" alt="NewYork-Presbyterian" class="client-logo-img" />
+      </div>
+      <div class="client-logo-cell">
+        <img src="cs-images/logos/partnership-to-end-addiction.png" alt="Partnership to End Addiction" class="client-logo-img" />
+      </div>
+      <div class="client-logo-cell">
+        <img src="cs-images/logos/teladoc.png" alt="Teladoc" class="client-logo-img" />
+      </div>
+      <div class="client-logo-cell">
+        <img src="cs-images/logos/betterhelp.png" alt="BetterHelp" class="client-logo-img" />
+      </div>
+      <div class="client-logo-cell">
+        <img src="cs-images/logos/spear.png" alt="Spear" class="client-logo-img" />
+      </div>
+      <div class="client-logo-cell">
+        <img src="cs-images/logos/osf-healthcare.png" alt="OSF HealthCare" class="client-logo-img" />
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CTA ──────────────────────────────────────────────────────────── -->
+  <section class="cta-section">
+    <p class="eyebrow">The 30-Year Rally · May 5 · Salt Lake City</p>
+    <h2>Meet us at<br><em>The 30-Year Rally.</em></h2>
+    <p>After three decades of helping academic medical centers and health systems build legendary brands, we are officially leaning into healthcare as our core specialty.</p>
+    <p>We are marking 30 years on a pickleball court. No presentations. No pitches. Just connection.</p>
+    <p>Come play. Come watch. Or just hang out.</p>
+    <p class="cta-closer">Let's talk about the IDEA that could change everything for your institution.</p>
+    <div class="cta-btns">
+      <a href="the-30-year-rally.html" class="btn-dark">RSVP to The Rally →</a>
+      <a href="mailto:lee@digobrands.com" class="btn-outline">Talk to Lee</a>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────────────── -->
+  <footer>
+    <span class="footer-logo"><img src="cs-images/digo-logo-white.png" alt="DiGo" style="height: 18px; width: auto; opacity: 0.5; vertical-align: middle; margin-right: 10px;" /> DiMassimo Goldstein</span>
+    <span class="footer-copy">© 2026 DiMassimo Goldstein. All rights reserved.</span>
+  </footer>
+
+</body>
+</html>

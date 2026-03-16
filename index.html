@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The 30-Year Rally — May 5, Salt Lake City</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Reset & Base ─────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:    #F2C12E;
+      --gold-dk: #C9970D;
+      --black:   #080808;
+      --near-black: #111111;
+      --dark:    #1A1A1A;
+      --mid:     #2A2A2A;
+      --grey:    #888888;
+      --light:   #F5F0E8;
+      --white:   #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Utility ──────────────────────────────────────────────────────── */
+    .eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .rule {
+      width: 48px;
+      height: 3px;
+      background: var(--gold);
+      margin-bottom: 28px;
+    }
+
+    /* ── HERO ─────────────────────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      background: var(--black);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 80px 8vw 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 80% 50%, rgba(242,193,46,0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 20% 80%, rgba(242,193,46,0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 40px;
+    }
+
+    .hero-badge .eyebrow { color: var(--grey); }
+    .hero-badge .sep { color: var(--gold); opacity: 0.5; }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(64px, 9vw, 140px);
+      font-weight: 900;
+      line-height: 0.92;
+      letter-spacing: -0.02em;
+      max-width: 760px;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-year {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(64px, 9vw, 140px);
+      font-weight: 900;
+      line-height: 0.92;
+      color: transparent;
+      -webkit-text-stroke: 1.5px rgba(242,193,46,0.3);
+      letter-spacing: -0.02em;
+      margin-bottom: 48px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 56px;
+    }
+
+    .hero-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .hero-meta-row .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .hero-meta-row span {
+      font-size: 18px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 0.01em;
+    }
+
+    .hero-meta-row strong {
+      font-weight: 500;
+      color: var(--white);
+    }
+
+    .hero-tagline {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(18px, 2.2vw, 26px);
+      color: rgba(255,255,255,0.55);
+      max-width: 480px;
+      line-height: 1.5;
+      border-left: 2px solid var(--gold);
+      padding-left: 20px;
+      margin-bottom: 56px;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--black);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 18px 44px;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .hero-cta:hover {
+      background: var(--gold-dk);
+      transform: translateY(-2px);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px;
+      left: 8vw;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      opacity: 0.35;
+    }
+
+    .hero-scroll span {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .hero-scroll-line {
+      width: 40px;
+      height: 1px;
+      background: var(--white);
+    }
+
+    /* ── DIGO WORDMARK ────────────────────────────────────────────────── */
+    .digo-mark {
+      position: absolute;
+      top: 40px;
+      right: 8vw;
+    }
+
+    .digo-mark img {
+      height: 28px;
+      width: auto;
+      opacity: 0.9;
+    }
+
+    /* ── WHAT IT IS ───────────────────────────────────────────────────── */
+    .what {
+      background: var(--near-black);
+      padding: 120px 8vw;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .what { grid-template-columns: 1fr; gap: 48px; }
+    }
+
+    .what-left h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 4vw, 60px);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 28px;
+    }
+
+    .what-left h2 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .what-left p {
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 20px;
+    }
+
+    .what-left p strong {
+      color: var(--white);
+      font-weight: 500;
+    }
+
+    .what-right {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .detail-block {
+      padding: 28px 32px;
+      border-left: 3px solid transparent;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .detail-block:hover {
+      border-left-color: var(--gold);
+      background: rgba(242,193,46,0.04);
+    }
+
+    .detail-block .eyebrow {
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .detail-block .val {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--white);
+    }
+
+    .detail-block .sub {
+      font-size: 14px;
+      color: var(--grey);
+      margin-top: 4px;
+      font-weight: 300;
+    }
+
+    /* ── THE VIBE ─────────────────────────────────────────────────────── */
+    .vibe {
+      background: var(--gold);
+      padding: 100px 8vw;
+      text-align: center;
+    }
+
+    .vibe h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4.5vw, 64px);
+      font-weight: 900;
+      color: var(--black);
+      line-height: 1.1;
+      max-width: 800px;
+      margin: 0 auto 32px;
+    }
+
+    .vibe p {
+      font-size: 18px;
+      font-weight: 400;
+      color: rgba(0,0,0,0.65);
+      max-width: 580px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .vibe-items {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin-top: 60px;
+      flex-wrap: wrap;
+    }
+
+    .vibe-item {
+      padding: 24px 48px;
+      border-right: 1px solid rgba(0,0,0,0.15);
+      text-align: center;
+    }
+
+    .vibe-item:last-child { border-right: none; }
+
+    .vibe-item .icon {
+      font-size: 32px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .vibe-item .label {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--black);
+    }
+
+    .vibe-item .no {
+      font-size: 11px;
+      font-weight: 400;
+      color: rgba(0,0,0,0.5);
+      margin-top: 4px;
+      letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 600px) {
+      .vibe-item { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.15); padding: 20px 24px; }
+      .vibe-item:last-child { border-bottom: none; }
+    }
+
+    /* ── 30 YEARS ─────────────────────────────────────────────────────── */
+    .thirty {
+      background: var(--dark);
+      padding: 120px 8vw;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    @media (max-width: 768px) {
+      .thirty { grid-template-columns: 1fr; gap: 40px; }
+    }
+
+    .thirty-number {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(100px, 14vw, 200px);
+      font-weight: 900;
+      line-height: 1;
+      color: transparent;
+      -webkit-text-stroke: 2px var(--gold);
+      opacity: 0.25;
+      user-select: none;
+    }
+
+    .thirty-content .rule { margin-top: 8px; }
+
+    .thirty-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 3vw, 44px);
+      font-weight: 700;
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+
+    .thirty-content h2 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .thirty-content p {
+      font-size: 17px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.85;
+      max-width: 520px;
+      margin-bottom: 20px;
+    }
+
+    /* ── RSVP SECTION ─────────────────────────────────────────────────── */
+    .rsvp-section {
+      background: var(--near-black);
+      padding: 120px 8vw;
+    }
+
+    .rsvp-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .rsvp-header .eyebrow { margin-bottom: 16px; display: block; }
+
+    .rsvp-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 4.5vw, 64px);
+      font-weight: 900;
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .rsvp-header h2 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .rsvp-header p {
+      font-size: 16px;
+      color: var(--grey);
+      max-width: 440px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .rsvp-form-wrap {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* ── FORM ─────────────────────────────────────────────────────────── */
+    .form-group {
+      margin-bottom: 28px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: var(--mid);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 300;
+      padding: 16px 20px;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+      -webkit-appearance: none;
+      border-radius: 0;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(255,255,255,0.2);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+      background: rgba(242,193,46,0.04);
+    }
+
+    .form-group select {
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23F2C12E' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 20px center;
+      padding-right: 44px;
+    }
+
+    .form-group select option {
+      background: var(--dark);
+      color: var(--white);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 96px;
+    }
+
+    /* Toggle row for play/watch */
+    .toggle-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .toggle-opt {
+      position: relative;
+    }
+
+    .toggle-opt input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+    }
+
+    .toggle-opt label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 20px 16px;
+      background: var(--mid);
+      border: 1px solid rgba(255,255,255,0.08);
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: center;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+    }
+
+    .toggle-opt label .toggle-icon {
+      font-size: 24px;
+      display: block;
+    }
+
+    .toggle-opt input[type="radio"]:checked + label {
+      background: rgba(242,193,46,0.12);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* Plus one toggle */
+    .plus-one-toggle {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+      margin-bottom: 0;
+    }
+
+    .plus-one-toggle input[type="checkbox"] {
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: var(--mid);
+      cursor: pointer;
+      flex-shrink: 0;
+      position: relative;
+      transition: all 0.2s;
+    }
+
+    .plus-one-toggle input[type="checkbox"]:checked {
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .plus-one-toggle input[type="checkbox"]:checked::after {
+      content: '';
+      position: absolute;
+      top: 3px; left: 6px;
+      width: 5px; height: 9px;
+      border: 2px solid var(--black);
+      border-top: none;
+      border-left: none;
+      transform: rotate(45deg);
+    }
+
+    .plus-one-toggle .toggle-label {
+      font-size: 15px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 0;
+      text-transform: none;
+      margin-bottom: 0;
+    }
+
+    .plus-one-fields {
+      display: none;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .plus-one-fields.visible { display: block; }
+
+    /* Form grid */
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 520px) {
+      .form-row { grid-template-columns: 1fr; }
+      .toggle-group { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* Submit */
+    .form-submit {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .btn-submit {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--black);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 20px 64px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      width: 100%;
+    }
+
+    .btn-submit:hover {
+      background: var(--gold-dk);
+      transform: translateY(-2px);
+    }
+
+    .form-note {
+      font-size: 13px;
+      color: var(--grey);
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    /* ── SUCCESS STATE ────────────────────────────────────────────────── */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 64px 32px;
+    }
+
+    .form-success .success-icon {
+      font-size: 48px;
+      display: block;
+      margin-bottom: 24px;
+    }
+
+    .form-success h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .form-success h3 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .form-success p {
+      font-size: 17px;
+      color: var(--grey);
+      max-width: 380px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ── FOOTER ───────────────────────────────────────────────────────── */
+    footer {
+      background: var(--black);
+      padding: 48px 8vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    footer .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: 18px;
+      color: var(--white);
+    }
+
+    footer .footer-brand span { color: var(--gold); }
+
+    footer .footer-tag {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--grey);
+    }
+
+    footer .footer-copy {
+      font-size: 12px;
+      color: rgba(255,255,255,0.2);
+    }
+
+    /* ── Formspree note overlay ───────────────────────────────────────── */
+    .setup-banner {
+      background: rgba(242,193,46,0.1);
+      border: 1px solid rgba(242,193,46,0.3);
+      padding: 16px 24px;
+      margin-bottom: 32px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+    }
+
+    .setup-banner strong { color: var(--gold); }
+    .setup-banner a { color: var(--gold); }
+    .setup-banner code {
+      background: rgba(0,0,0,0.4);
+      padding: 2px 6px;
+      font-size: 12px;
+      border-radius: 2px;
+      color: var(--white);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── HERO ─────────────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="digo-mark"><img src="data:image/png;base64,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" alt="DiGo" /></div>
+
+    <div class="hero-badge">
+      <span class="eyebrow">DiMassimo Goldstein</span>
+      <span class="sep">·</span>
+      <span class="eyebrow" style="color: rgba(255,255,255,0.3);">Invitation Only</span>
+    </div>
+
+    <h1>The 30-Year<br /><em>Rally.</em></h1>
+    <div class="hero-year">1996 — 2026</div>
+
+    <div class="hero-meta">
+      <div class="hero-meta-row">
+        <div class="dot"></div>
+        <span><strong>Tuesday, May 5th, 2026</strong></span>
+      </div>
+      <div class="hero-meta-row">
+        <div class="dot"></div>
+        <span>Salt Lake City, Utah</span>
+      </div>
+      <div class="hero-meta-row">
+        <div class="dot"></div>
+        <span>Evening — during HMPS 2026</span>
+      </div>
+    </div>
+
+    <p class="hero-tagline">
+      "The only agenda is connection."
+    </p>
+
+    <a href="#rsvp" class="hero-cta">Reserve Your Spot</a>
+
+    <div class="hero-scroll">
+      <div class="hero-scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ── WHAT IT IS ──────────────────────────────────────────────────── -->
+  <section class="what">
+    <div class="what-left">
+      <div class="rule"></div>
+      <h2>An evening<br />unlike the<br /><em>rest of them.</em></h2>
+      <p>
+        No keynotes. No panels. No badge-scan small talk.
+        Just <strong>good people, great drinks, live music,</strong> and a few
+        unreasonably competitive pickleball games on a Tuesday night in Salt Lake City.
+      </p>
+      <p>
+        This is DiGo's celebration of 30 years of building legendary
+        healthcare brands — and the people who made it possible.
+      </p>
+    </div>
+
+    <div class="what-right">
+      <div class="detail-block">
+        <span class="eyebrow">When</span>
+        <div class="val">Tuesday, May 5th</div>
+        <div class="sub">Evening — full details in your confirmation</div>
+      </div>
+      <div class="detail-block">
+        <span class="eyebrow">Where</span>
+        <div class="val">Salt Lake City</div>
+        <div class="sub">~10 min from the conference hotel. Transport provided.</div>
+      </div>
+      <div class="detail-block">
+        <span class="eyebrow">What</span>
+        <div class="val">Pickleball + Music + Drinks</div>
+        <div class="sub">Play or watch. Both are equally valid life choices.</div>
+      </div>
+      <div class="detail-block">
+        <span class="eyebrow">Who</span>
+        <div class="val">Invitation Only</div>
+        <div class="sub">You were invited because we actually want to see you.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── THE VIBE ────────────────────────────────────────────────────── -->
+  <section class="vibe">
+    <h2>Come play.<br />Come watch.<br />Come hang.</h2>
+    <p>
+      Good music, better drinks, and zero slide decks.
+    </p>
+
+    <div class="vibe-items">
+      <div class="vibe-item">
+        <span class="icon">🏓</span>
+        <div class="label">Pickleball</div>
+        <div class="no">Bring game</div>
+      </div>
+      <div class="vibe-item">
+        <span class="icon">🥂</span>
+        <div class="label">Open Bar</div>
+        <div class="no">All evening</div>
+      </div>
+      <div class="vibe-item">
+        <span class="icon">🎵</span>
+        <div class="label">Live Music</div>
+        <div class="no">The good kind</div>
+      </div>
+      <div class="vibe-item">
+        <span class="icon">🚫</span>
+        <div class="label">Zero Decks</div>
+        <div class="no">We mean it</div>
+      </div>
+      <div class="vibe-item">
+        <span class="icon">🚐</span>
+        <div class="label">Transport</div>
+        <div class="no">From hotel</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 30 YEARS ────────────────────────────────────────────────────── -->
+  <section class="thirty">
+    <div class="thirty-number" aria-hidden="true">30</div>
+    <div class="thirty-content">
+      <div class="rule"></div>
+      <span class="eyebrow" style="margin-bottom: 16px; display: block;">Why May 5th</span>
+      <h2>The <em>idea</em> that<br />changes everything.</h2>
+      <p>
+        Thirty years ago, DiMassimo Goldstein opened its doors with one belief:
+        that the right idea, applied with conviction, can change what people do —
+        and how they feel about the healthcare brands that serve them.
+      </p>
+      <p>
+        We've built brands for Memorial Sloan Kettering, Dartmouth Health,
+        National Jewish Health, BetterHelp — and a few dozen more you'd
+        recognize.
+      </p>
+      <p>
+        <a href="digo-healthcare-work-share.html" style="color: var(--gold); text-decoration: none; font-weight: 500; letter-spacing: 0.02em; border-bottom: 1px solid rgba(242,193,46,0.35); padding-bottom: 1px; transition: border-color 0.2s;" onmouseover="this.style.borderColor='rgba(242,193,46,0.9)'" onmouseout="this.style.borderColor='rgba(242,193,46,0.35)'">See thirty years of healthcare work →</a>
+      </p>
+      <p>
+        May 5th is our actual 30th anniversary. We're spending it with you.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── RSVP ────────────────────────────────────────────────────────── -->
+  <section class="rsvp-section" id="rsvp">
+    <div class="rsvp-header">
+      <span class="eyebrow">You're invited</span>
+      <h2>Save Your<br /><em>Spot.</em></h2>
+      <p>Space is limited. RSVP and we'll send confirmation details.</p>
+    </div>
+
+    <div class="rsvp-form-wrap">
+
+
+      <!-- SUCCESS STATE -->
+      <div class="form-success" id="form-success">
+        <span class="success-icon">🏓</span>
+        <h3>You're <em>in.</em></h3>
+        <p>We'll send full details — including transport info — closer to May 5th. See you in Salt Lake City.</p>
+      </div>
+
+      <!-- RSVP FORM -->
+      <form
+        id="rsvp-form"
+        action="https://formspree.io/f/xzdjrwykdo"
+        method="POST"
+      >
+        <!-- Hidden redirect target for non-JS fallback -->
+        <input type="hidden" name="_next" value="" />
+        <input type="hidden" name="_subject" value="🏓 New RSVP — The 30-Year Rally" />
+        <input type="text" name="_gotcha" style="display:none" />
+
+        <!-- Name -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" name="first_name" placeholder="First" required />
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" name="last_name" placeholder="Last" required />
+          </div>
+        </div>
+
+        <!-- Email + Org -->
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="you@yourorg.com" required />
+        </div>
+
+        <div class="form-group">
+          <label for="org">Organization</label>
+          <input type="text" id="org" name="organization" placeholder="Your health system or company" />
+        </div>
+
+        <!-- Play or Watch -->
+        <div class="form-group">
+          <label>Are you playing or just hanging?</label>
+          <div class="toggle-group">
+            <div class="toggle-opt">
+              <input type="radio" id="playing" name="participation" value="Playing — I'm in" />
+              <label for="playing">
+                <span class="toggle-icon">🏓</span>
+                I'm Playing
+              </label>
+            </div>
+            <div class="toggle-opt">
+              <input type="radio" id="watching" name="participation" value="Just hanging — drinks and vibes" />
+              <label for="watching">
+                <span class="toggle-icon">🥂</span>
+                Just Hanging
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dietary -->
+        <div class="form-group">
+          <label for="dietary">Any dietary restrictions?</label>
+          <input type="text" id="dietary" name="dietary_restrictions" placeholder="Vegetarian, gluten-free, allergies, etc. (or leave blank)" />
+        </div>
+
+        <!-- Plus One -->
+        <div class="form-group">
+          <label style="margin-bottom: 0;">Plus One</label>
+          <div class="plus-one-toggle" style="margin-top: 10px;">
+            <input type="checkbox" id="plus-one-toggle" name="bringing_plus_one" value="Yes" onchange="togglePlusOne(this)" />
+            <span class="toggle-label">I'd like to bring a plus one</span>
+          </div>
+          <div class="plus-one-fields" id="plus-one-fields">
+            <div class="form-row">
+              <div class="form-group" style="margin-bottom: 0;">
+                <label for="guest-name">Guest Name</label>
+                <input type="text" id="guest-name" name="plus_one_name" placeholder="Guest's full name" />
+              </div>
+              <div class="form-group" style="margin-bottom: 0;">
+                <label for="guest-dietary">Guest Dietary</label>
+                <input type="text" id="guest-dietary" name="plus_one_dietary" placeholder="Any restrictions?" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <div class="form-submit">
+          <button type="submit" class="btn-submit">Count Me In</button>
+          <p class="form-note">Invitation only. Your spot is confirmed when you receive a reply from Lee.</p>
+        </div>
+
+      </form>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ──────────────────────────────────────────────────────── -->
+  <footer>
+    <div>
+      <div class="footer-brand"><img src="data:image/png;base64,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" alt="DiGo" style="height: 22px; width: auto;" /></div>
+      <div class="footer-tag" style="margin-top: 4px;">DiMassimo Goldstein</div>
+    </div>
+    <div class="footer-tag">The IDEA That Changes Everything</div>
+    <div class="footer-copy">© 2026 DiMassimo Goldstein. All rights reserved.</div>
+  </footer>
+
+  <!-- ── Scripts ─────────────────────────────────────────────────────── -->
+  <script>
+    // Plus one toggle
+    function togglePlusOne(cb) {
+      const fields = document.getElementById('plus-one-fields');
+      if (cb.checked) {
+        fields.classList.add('visible');
+      } else {
+        fields.classList.remove('visible');
+      }
+    }
+
+    // Formspree AJAX submission
+    const form = document.getElementById('rsvp-form');
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const btn = form.querySelector('.btn-submit');
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+
+      const data = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          form.style.display = 'none';
+
+          document.getElementById('form-success').style.display = 'block';
+          document.getElementById('form-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          btn.textContent = 'Something went wrong — try again';
+          btn.disabled = false;
+        }
+      } catch (err) {
+        btn.textContent = 'Something went wrong — try again';
+        btn.disabled = false;
+      }
+    });
+
+    // Smooth scroll for CTA
+    document.querySelector('.hero-cta').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('rsvp').scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
+
+</body>
+</html>
