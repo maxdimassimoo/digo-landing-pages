@@ -14,27 +14,26 @@ const mimeTypes = {
   '.svg': 'image/svg+xml',
 };
 
-// Subdomain → file mapping
-const subdomainMap = {
-  'rally': './the-30-year-rally.html',
-  'work': './digo-healthcare-work-share.html',
+// Clean route → file mapping
+const routes = {
+  '/': './the-30-year-rally.html',
+  '/rsvp': './the-30-year-rally.html',
+  '/healthcare': './digo-healthcare-work-share.html',
 };
 
 http.createServer((req, res) => {
-  const host = (req.headers.host || '').split(':')[0];
-  const subdomain = host.split('.')[0];
+  const urlPath = decodeURIComponent(req.url.split('?')[0]);
 
-  let filePath;
-
-  // If request hits a known subdomain, serve that page directly
-  if (subdomainMap[subdomain] && req.url.split('?')[0] === '/') {
-    filePath = subdomainMap[subdomain];
-  } else {
-    filePath = '.' + decodeURIComponent(req.url.split('?')[0]);
-    if (filePath === './') filePath = './the-30-year-rally.html';
-    if (!path.extname(filePath)) filePath += '.html';
+  // Check clean routes first
+  if (routes[urlPath]) {
+    const content = fs.readFileSync(routes[urlPath]);
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.end(content);
+    return;
   }
 
+  // Serve static files (images, etc.)
+  let filePath = '.' + urlPath;
   const ext = path.extname(filePath).toLowerCase();
   const contentType = mimeTypes[ext] || 'application/octet-stream';
 

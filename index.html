@@ -200,13 +200,15 @@
       position: absolute;
       top: 40px;
       right: 8vw;
-    }
-
-    .digo-mark img {
-      height: 28px;
-      width: auto;
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: 22px;
+      letter-spacing: -0.02em;
+      color: var(--white);
       opacity: 0.9;
     }
+
+    .digo-mark span { color: var(--gold); }
 
     /* ── WHAT IT IS ───────────────────────────────────────────────────── */
     .what {
@@ -745,7 +747,7 @@
 
   <!-- ── HERO ─────────────────────────────────────────────────────────── -->
   <section class="hero">
-    <div class="digo-mark"><img src="data:image/png;base64,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" alt="DiGo" /></div>
+    <div class="digo-mark"><img src="cs-images/digo-logo-white.png" alt="DiGo" style="height: 24px; width: auto; display: block;" /></div>
 
     <div class="hero-badge">
       <span class="eyebrow">DiMassimo Goldstein</span>
@@ -789,13 +791,13 @@
       <div class="rule"></div>
       <h2>An evening<br />unlike the<br /><em>rest of them.</em></h2>
       <p>
-        No keynotes. No panels. No badge-scan small talk.
-        Just <strong>good people, great drinks, live music,</strong> and a few
+        No keynotes. No panels.
+        Just good people, lively music, and a few
         unreasonably competitive pickleball games on a Tuesday night in Salt Lake City.
       </p>
       <p>
-        This is DiGo's celebration of 30 years of building legendary
-        healthcare brands — and the people who made it possible.
+        This is DiGo's celebration of 30 years of building healthcare brands
+        that matter — and the people who made it matter.
       </p>
     </div>
 
@@ -818,7 +820,7 @@
       <div class="detail-block">
         <span class="eyebrow">Who</span>
         <div class="val">Invitation Only</div>
-        <div class="sub">You were invited because we actually want to see you.</div>
+        <div class="sub">Yes, you really are that special.</div>
       </div>
     </div>
   </section>
@@ -826,9 +828,6 @@
   <!-- ── THE VIBE ────────────────────────────────────────────────────── -->
   <section class="vibe">
     <h2>Come play.<br />Come watch.<br />Come hang.</h2>
-    <p>
-      Good music, better drinks, and zero slide decks.
-    </p>
 
     <div class="vibe-items">
       <div class="vibe-item">
@@ -843,13 +842,13 @@
       </div>
       <div class="vibe-item">
         <span class="icon">🎵</span>
-        <div class="label">Live Music</div>
-        <div class="no">The good kind</div>
+        <div class="label">Lively Music</div>
+        <div class="no">Good kind</div>
       </div>
       <div class="vibe-item">
         <span class="icon">🚫</span>
         <div class="label">Zero Decks</div>
-        <div class="no">We mean it</div>
+        <div class="no">We promise</div>
       </div>
       <div class="vibe-item">
         <span class="icon">🚐</span>
@@ -873,14 +872,14 @@
       </p>
       <p>
         We've built brands for Memorial Sloan Kettering, Dartmouth Health,
-        National Jewish Health, BetterHelp — and a few dozen more you'd
-        recognize.
+        National Jewish Health, BetterHelp and dozens of the most innovative
+        health and wellness organizations in the world.
       </p>
       <p>
-        <a href="digo-healthcare-work-share.html" style="color: var(--gold); text-decoration: none; font-weight: 500; letter-spacing: 0.02em; border-bottom: 1px solid rgba(242,193,46,0.35); padding-bottom: 1px; transition: border-color 0.2s;" onmouseover="this.style.borderColor='rgba(242,193,46,0.9)'" onmouseout="this.style.borderColor='rgba(242,193,46,0.35)'">See thirty years of healthcare work →</a>
+        <a href="digo-healthcare-work.html" style="color: var(--gold); text-decoration: none; font-weight: 500; letter-spacing: 0.02em; border-bottom: 1px solid rgba(242,193,46,0.35); padding-bottom: 1px; transition: border-color 0.2s;" onmouseover="this.style.borderColor='rgba(242,193,46,0.9)'" onmouseout="this.style.borderColor='rgba(242,193,46,0.35)'">This is what thirty years of building legendary healthcare brands looks like →</a>
       </p>
       <p>
-        May 5th is our actual 30th anniversary. We're spending it with you.
+        May 5th marks our 30th anniversary, and we would love to spend it with you.
       </p>
     </div>
   </section>
@@ -890,7 +889,7 @@
     <div class="rsvp-header">
       <span class="eyebrow">You're invited</span>
       <h2>Save Your<br /><em>Spot.</em></h2>
-      <p>Space is limited. RSVP and we'll send confirmation details.</p>
+      <p>Space is limited. RSVP for confirmation details.</p>
     </div>
 
     <div class="rsvp-form-wrap">
@@ -939,7 +938,7 @@
 
         <!-- Play or Watch -->
         <div class="form-group">
-          <label>Are you playing or just hanging?</label>
+          <label>Are you playing or hanging?</label>
           <div class="toggle-group">
             <div class="toggle-opt">
               <input type="radio" id="playing" name="participation" value="Playing — I'm in" />
@@ -988,7 +987,7 @@
         <!-- Submit -->
         <div class="form-submit">
           <button type="submit" class="btn-submit">Count Me In</button>
-          <p class="form-note">Invitation only. Your spot is confirmed when you receive a reply from Lee.</p>
+          <p class="form-note">Invitation only. Your spot is confirmed once you receive a reply from Lee.</p>
         </div>
 
       </form>
@@ -998,7 +997,7 @@
   <!-- ── FOOTER ──────────────────────────────────────────────────────── -->
   <footer>
     <div>
-      <div class="footer-brand"><img src="data:image/png;base64,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" alt="DiGo" style="height: 22px; width: auto;" /></div>
+      <div class="footer-brand"><img src="cs-images/digo-logo-white.png" alt="DiGo" style="height: 18px; width: auto; opacity: 0.9;" /></div>
       <div class="footer-tag" style="margin-top: 4px;">DiMassimo Goldstein</div>
     </div>
     <div class="footer-tag">The IDEA That Changes Everything</div>
