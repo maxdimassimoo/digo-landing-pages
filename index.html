@@ -289,29 +289,34 @@
 
     /* ── PHOTO STRIP ─────────────────────────────────────────────────── */
     .photo-strip {
-      display: flex;
-      gap: 4px;
-      overflow: hidden;
-      height: 280px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 6px;
+      padding: 0 8vw;
+      background: var(--near-black);
+      padding-top: 60px;
+      padding-bottom: 60px;
     }
 
     .photo-strip img {
-      flex: 1;
-      min-width: 0;
+      width: 100%;
+      aspect-ratio: 3 / 4;
       object-fit: cover;
-      object-position: center top;
-      filter: grayscale(20%);
-      transition: filter 0.3s, flex 0.4s;
+      object-position: center 20%;
+      border-radius: 4px;
+      filter: grayscale(15%);
+      transition: filter 0.3s, transform 0.3s;
     }
 
     .photo-strip img:hover {
       filter: grayscale(0%);
-      flex: 1.5;
+      transform: scale(1.03);
     }
 
     @media (max-width: 768px) {
       .photo-strip {
-        height: 180px;
+        grid-template-columns: repeat(3, 1fr);
+        padding: 40px 6vw;
       }
       .photo-strip img:nth-child(n+4) {
         display: none;
