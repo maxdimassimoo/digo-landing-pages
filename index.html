@@ -287,6 +287,37 @@
       font-weight: 300;
     }
 
+    /* ── PHOTO STRIP ─────────────────────────────────────────────────── */
+    .photo-strip {
+      display: flex;
+      gap: 4px;
+      overflow: hidden;
+      height: 280px;
+    }
+
+    .photo-strip img {
+      flex: 1;
+      min-width: 0;
+      object-fit: cover;
+      object-position: center top;
+      filter: grayscale(20%);
+      transition: filter 0.3s, flex 0.4s;
+    }
+
+    .photo-strip img:hover {
+      filter: grayscale(0%);
+      flex: 1.5;
+    }
+
+    @media (max-width: 768px) {
+      .photo-strip {
+        height: 180px;
+      }
+      .photo-strip img:nth-child(n+4) {
+        display: none;
+      }
+    }
+
     /* ── THE VIBE ─────────────────────────────────────────────────────── */
     .vibe {
       background: var(--gold);
@@ -824,6 +855,15 @@
       </div>
     </div>
   </section>
+
+  <!-- ── PHOTO STRIP ────────────────────────────────────────────────── -->
+  <div class="photo-strip">
+    <img src="party-images/event-gala.jpg" alt="DiGo team at a gala event" />
+    <img src="party-images/pickleball-action.jpg" alt="Pickleball in action" />
+    <img src="party-images/drinks-crew.jpg" alt="Friends enjoying drinks at a DiGo event" />
+    <img src="party-images/mark-lee.jpg" alt="Mark and Lee" />
+    <img src="party-images/party-vibes.jpg" alt="Fun at a DiGo party" />
+  </div>
 
   <!-- ── THE VIBE ────────────────────────────────────────────────────── -->
   <section class="vibe">
